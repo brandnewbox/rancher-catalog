@@ -1,7 +1,17 @@
-.catalog:
+version: '2'
+catalog:
   name: "BNB Redis"
   version: "v0.0.1"
   description: "A simple Redis installation"
-  uuid: bnb-redis-1
-bnb-redis:
-  scale: 1
+  questions:
+    - variable: host_label
+      label: "Host with Label to put redis on"
+      description: |
+        Host label to use as redis 'value' tag.
+        Example: 'redis=true'
+      required: false
+      default: ""
+      type: "string"
+services:
+  redis:
+    scale: 1

@@ -24,6 +24,6 @@ catalog:
       default: ""
       type: "string"
 services:
-  bnb-ssh-tunnel:
+  ssh-host-container:
     scale: 1
 

@@ -6,7 +6,7 @@ catalog:
   questions:    
     - variable: ssh_key
       label: "Public SSH Key(s)"
-      description: "Key(s) to place in <code>~/ssh/authorized_keys</code>"
+      description: "Key(s) to place in ~/ssh/authorized_keys"
       required: true
       type: multiline
     - variable: tunnel_port

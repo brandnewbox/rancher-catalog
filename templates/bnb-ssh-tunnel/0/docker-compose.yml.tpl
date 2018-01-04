@@ -1,6 +1,6 @@
 version: '2'
 services:
-  bnb-redis:
+  bnb-ssh-tunnel:
     image: rancher/ssh-host-container
     environment:
       SSH_KEY: ${ssh_key}

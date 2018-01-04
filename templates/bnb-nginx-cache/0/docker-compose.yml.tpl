@@ -2,10 +2,12 @@ version: '2'
 services:
   nginx-cache:
     image: brandnewbox/nginx-cache
+    stdin_open: true
+    tty: true
     environment:
       BACKEND_HOST: app
       BACKEND_PORT: ${backend_port}
-    links:
+    external_links:
     - ${backend_service}:app
     labels:
       io.rancher.container.pull_image: always

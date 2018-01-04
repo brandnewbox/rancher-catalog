@@ -2,6 +2,8 @@ version: '2'
 services:
   ssh-host-container:
     image: rancher/ssh-host-container
+    stdin_open: true
+    tty: true
     environment:
       SSH_KEY: ${ssh_key}
     ports:

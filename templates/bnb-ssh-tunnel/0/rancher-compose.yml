@@ -1,0 +1,36 @@
+version: '2'
+catalog:
+  name: "BNB SSH Tunnel"
+  version: "v0.0.1"
+  description: "A simple SSH Tunnel installation"
+  questions:    
+    - variable: ssh_key
+      label: "Public SSH Key(s)"
+      description: "Key(s) to place in <code>~/ssh/authorized_keys</code>"
+      required: true
+      type: multiline
+    - variable: tunnel_port
+      description: "Port to access SSH Tunnel from external services"
+      label: "Port"
+      default: 22
+      required: true
+      type: int
+    - variable: host_label
+      label: "Host with Label to put SSH Tunnel on"
+      description: |
+        Host label to use as SSH Tunnel 'value' tag.
+        Example: 'tunnel=true'
+      required: false
+      default: ""
+      type: "string"
+services:
+  bnb-ssh-tunnel:
+    scale: 1
+    lb_config:
+      certs: []
+      port_rules:
+      - protocol: tcp
+        service: bnb-ssh-tunnel
+        source_port: ${tunnel_port}
+        target_port: 22
+

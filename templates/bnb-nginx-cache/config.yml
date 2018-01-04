@@ -1,0 +1,5 @@
+name: BNB Nginx Cache
+description: A highly configurable NGINX Cache Server
+version: v0.0.1
+category: Networking
+maintainer: Brand New Box <hello@brandnewbox.com>

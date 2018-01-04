@@ -1,11 +1,12 @@
 version: '2'
 services:
-  ssh-host-container:
-    image: rancher/ssh-host-container
+  nginx-cache:
+    image: brandnewbox/nginx-cache
     environment:
-      SSH_KEY: ${ssh_key}
-    ports:
-      - ${tunnel_port}:22/tcp
+      BACKEND_HOST: app
+      BACKEND_PORT: ${backend_port}
+    links:
+    - ${backend_service}:app
     labels:
       io.rancher.container.pull_image: always
       {{- if ne .Values.host_label ""}}

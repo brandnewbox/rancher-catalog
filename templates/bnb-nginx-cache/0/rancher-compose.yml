@@ -1,0 +1,29 @@
+version: '2'
+catalog:
+  name: "BNB Nginx Cache"
+  version: "v0.0.1"
+  description: "A simple nginx cache installation"
+  questions:       
+    - variable: backend_service
+      label: "Backend Service"
+      description: "Which service will we be caching?"
+      required: true
+      type: service
+    - variable: backend_port
+      label: "Backend Port"
+      description: "Port to access service"
+      default: 3000
+      required: true
+      type: int 
+    - variable: host_label
+      label: "Host with Label to put redis on"
+      description: |
+        Host label to use as nginx cache 'value' tag.
+        Example: 'nginx-cache=true'
+      required: false
+      default: ""
+      type: "string"
+services:
+  nginx-cache:
+    scale: 1
+

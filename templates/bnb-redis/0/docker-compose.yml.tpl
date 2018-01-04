@@ -1,6 +1,6 @@
 version: '2'
 services:
-  bnb-redis:
+  redis:
     image: redis:3.2-alpine
     {{- if ne .Values.host_label ""}}
     labels:

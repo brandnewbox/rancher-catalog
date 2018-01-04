@@ -12,7 +12,7 @@ catalog:
     - variable: tunnel_port
       description: "Port to access SSH Tunnel from external services"
       label: "Port"
-      default: 22
+      default: 2222
       required: true
       type: int
     - variable: host_label

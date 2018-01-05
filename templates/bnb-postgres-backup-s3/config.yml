@@ -1,0 +1,5 @@
+name: BNB Postgres Backup to S3
+description: A Postgres Backup Service
+version: v0.0.1
+category: Databases
+maintainer: Brand New Box <hello@brandnewbox.com>

@@ -1,0 +1,68 @@
+version: '2'
+catalog:
+  name: "BNB Postgres Backup to S3"
+  version: "v0.0.1"
+  description: "Backup a Postgres Database to S3"
+  questions:       
+    - variable: database_service
+      label: "Database Service"
+      description: "Which database service will we be backing up?"
+      required: true
+      type: service
+    - variable: postgres_database
+      label: "Database Name"
+      description: "i.e. myapp_production"
+      required: true
+      type: "string" 
+    - variable: postgres_user
+      label: "Postgres User"
+      required: true
+      type: "string" 
+    - variable: postgres_password
+      label: "Postgres Password"
+      required: true
+      type: "string" 
+    - variable: s3_access_key_id
+      label: "S3 Access Key ID"
+      required: true
+      type: "string" 
+    - variable: s3_secret_access_key
+      label: "S3 Secret Access Key"
+      required: true
+      type: "string" 
+    - variable: s3_bucket
+      label: "S3 Bucket"
+      required: true
+      type: "string" 
+    - variable: s3_prefix
+      label: "S3 Prefix"
+      description: "Directory prefix i.e. myapp/production"
+      required: true
+      type: "string" 
+    - variable: s3_region
+      label: "S3 Region"
+      required: true
+      default: "us-east-1"
+      type: "string" 
+    - variable: schedule
+      label: "Schedule"
+      required: true
+      type: "enum" 
+      options:
+        - "@hourly"
+        - "@daily"
+        - "@weekly"
+        - "@monthly"
+        - "@yearly"
+    - variable: host_label
+      label: "Host with Label to put redis on"
+      description: |
+        Host label to use as nginx cache 'value' tag.
+        Example: 'nginx-cache=true'
+      required: false
+      type: "string"
+
+services:
+  postgres-backup-s3:
+    scale: 1
+

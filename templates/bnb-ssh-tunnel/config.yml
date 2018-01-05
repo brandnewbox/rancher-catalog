@@ -1,5 +1,5 @@
 name: BNB SSH Tunnel
-description: Any easy SSH Tunnel installation
+description: An SSH Tunnel / Bastion Host installation
 version: v0.0.1
 category: Networking
 maintainer: Brand New Box <hello@brandnewbox.com>

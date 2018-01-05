@@ -6,7 +6,7 @@ catalog:
   questions:       
     - variable: database_service
       label: "Database Service"
-      description: "Which database service will we be backing up?"
+      description: "Which database service will we be backing up? Normally postgres-lb"
       required: true
       type: service
     - variable: postgres_database

@@ -1,5 +1,5 @@
 name: BNB Redis
-description: Any easy Redis installation
+description: A basic Redis installation
 version: v0.0.1
 category: Storage
 maintainer: Brand New Box <hello@brandnewbox.com>

@@ -1,0 +1,5 @@
+name: BNB Mysql Backup to S3
+description: A Mysql Backup Service
+version: v0.0.1
+category: Databases
+maintainer: Brand New Box <hello@brandnewbox.com>

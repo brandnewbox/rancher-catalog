@@ -16,7 +16,7 @@ catalog:
       required: true
       type: int 
     - variable: host_label
-      label: "Host with Label to put redis on"
+      label: "Host with Label to put nginx-cache on"
       description: |
         Host label to use as nginx cache 'value' tag.
         Example: 'nginx-cache=true'

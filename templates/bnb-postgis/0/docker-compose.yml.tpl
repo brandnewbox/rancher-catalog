@@ -16,6 +16,7 @@ services:
       - pgdata:/var/lib/postgresql/data/pgdata
     labels:
       io.rancher.container.start_once: true
+      io.rancher.container.pull_image: always
       {{- if ne .Values.host_label ""}}
       io.rancher.scheduler.affinity:host_label: ${host_label}
       {{- end}}
@@ -34,7 +35,7 @@ services:
     volumes_from:
       - postgis-data
     labels:
-      io.rancher.sidekicks: postgres-data
+      io.rancher.sidekicks: postgis-data
       {{- if ne .Values.host_label ""}}
       io.rancher.scheduler.affinity:host_label: ${host_label}
       {{- end}}

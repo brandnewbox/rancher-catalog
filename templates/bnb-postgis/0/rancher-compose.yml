@@ -1,0 +1,99 @@
+version: '2'
+catalog:
+  name: "PostGIS"
+  version: "v0.0.2"
+  description: "PostGIS"
+  uuid: postgis-0
+  minimum_rancher_version: v0.9.0
+  questions:
+    - variable: postgres_user
+      description: "Postgres User"
+      label: "Postgres User"
+      required: true
+      default: "postgres_user"
+      type: "string"
+    - variable: postgres_pass
+      description: "Postgres Password"
+      label: "Postgres Password"
+      required: true
+      type: "string"
+    - variable: postgres_dbname
+      description: "Postgres Database Name"
+      label: "Postgres Database"
+      required: true
+      default: "myapp_production"
+      type: "string"
+    - variable: allow_ip_range
+      description: "Limit access to Postgres (The default is Rancher Internal Network)"
+      label: "Custom IP range to access Postgres"
+      required: true
+      type: "string"
+      default: "10.42.0.0/16"
+    - variable: "hstore"
+      description: "Support HSTORE extension"
+      label: "HSTORE"
+      required: true
+      default: "true"
+      type: enum
+      options: # List of options if using type of `enum`
+        - true
+        - false
+    - variable: "topology"
+      description: "Support TOPOLOGY extension"
+      label: "TOPOLOGY"
+      required: true
+      default: "true"
+      type: enum
+      options: # List of options if using type of `enum`
+        - true
+        - false
+    - variable: lb_port
+      description: "Port to access Postgres Load Balancer from external services"
+      label: "Postgres LB Port"
+      required: true
+      default: 5432
+      type: "int"
+    - variable: "volume_driver"
+      description: "The VOLUME driver to associate with this server"
+      label: "VOLUME Driver"
+      required: true
+      default: "local"
+      type: enum
+      options: # List of options if using type of `enum`
+        - local
+        - rancher-nfs
+        - rancher-efs
+        - rancher-ebs
+    - variable: host_label
+      label: "Host with Label to put postgis on"
+      description: |
+        Host label to use as postgis 'value' tag.
+        Example: 'postgis=true'
+      required: false
+      default: ""
+      type: "string"
+
+services:
+  postgis-lb:
+    scale: 1
+    lb_config:
+      certs: []
+      port_rules:
+      - protocol: tcp
+        service: postgis
+        source_port: ${lb_port}
+        target_port: 5432
+    health_check:
+      port: 42
+      interval: 2000
+      unhealthy_threshold: 3
+      healthy_threshold: 2
+      response_timeout: 2000
+  postgis:
+    scale: 1
+    health_check:
+      port: 5432
+      interval: 2000
+      unhealthy_threshold: 3
+      healthy_threshold: 2
+      response_timeout: 2000

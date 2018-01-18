@@ -1,0 +1,5 @@
+name: "PostGIS 9.6-2.4"
+description: "PostGIS is a FOSS geospatial datastore for PostgreSQL."
+version: v0.0.1
+category: Databases
+maintainer: Brand New Box <hello@brandnewbox.com>

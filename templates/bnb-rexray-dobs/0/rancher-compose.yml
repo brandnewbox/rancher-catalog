@@ -1,7 +1,7 @@
 version: '2'
 catalog:
   name: "REX-Ray DigitalOcean"
-  version: "v0.0.2"
+  version: "v0.0.3"
   description: "Docker volume plugin for DigitalOcean"
   questions:
     - variable: DOBS_TOKEN
@@ -35,9 +35,3 @@ catalog:
 services:
   rexray-dobs:
     scale: 1
-
-# bnb-rexray-dobs-driver:
-#   storage_driver:
-#     name: rexray-dobs
-#     scope: environment
-#     volume_access_mode: singleHostRW

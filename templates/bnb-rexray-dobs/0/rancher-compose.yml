@@ -25,10 +25,10 @@ catalog:
       label: Debug Mode
       description: Enable or disable verbose logging
     - variable: host_label
-      label: "Host with Label to put redis on"
+      label: "Host with Label to put REX-Ray on"
       description: |
-        Host label to use as redis 'value' tag.
-        Example: 'redis=true'
+        Host label to use as REX-ray 'value' tag.
+        Example: 'database=true'
       required: false
       default: ""
       type: "string"

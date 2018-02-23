@@ -1,5 +1,5 @@
 name: BNB REX-Ray DigitalOcean Driver
 description: Docker volume plugin for DigitalOcean
-version: v0.0.2
+version: v0.0.3
 category: Storage
 maintainer: Brand New Box <hello@brandnewbox.com>

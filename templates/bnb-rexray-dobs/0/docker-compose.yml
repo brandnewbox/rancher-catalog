@@ -25,3 +25,8 @@ services:
       {{- if ne .Values.host_label ""}}
       io.rancher.scheduler.affinity:host_label: ${host_label}
       {{- end}}
+    metadata:
+      storage_driver:
+        name: rexray-dobs
+        scope: environment
+        volume_access_mode: singleHostRW

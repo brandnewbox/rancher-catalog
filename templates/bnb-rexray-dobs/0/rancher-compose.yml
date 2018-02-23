@@ -1,8 +1,8 @@
-.catalog:
+version: '2'
+catalog:
   name: "REX-Ray DigitalOcean"
-  version: "v0.9.0"
-  description: |
-    Docker volume plugin for DigitalOcean
+  version: "v0.0.2"
+  description: "Docker volume plugin for DigitalOcean"
   questions:
     - variable: DOBS_TOKEN
       type: string
@@ -24,9 +24,20 @@
       - false
       label: Debug Mode
       description: Enable or disable verbose logging
+    - variable: host_label
+      label: "Host with Label to put redis on"
+      description: |
+        Host label to use as redis 'value' tag.
+        Example: 'redis=true'
+      required: false
+      default: ""
+      type: "string"
+services:
+  rexray-dobs:
+    scale: 1
 
-rexray-dobs-driver:
-  storage_driver:
-    name: rexray-dobs
-    scope: environment
-    volume_access_mode: singleHostRW
+# bnb-rexray-dobs-driver:
+#   storage_driver:
+#     name: rexray-dobs
+#     scope: environment
+#     volume_access_mode: singleHostRW

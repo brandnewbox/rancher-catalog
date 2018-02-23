@@ -1,12 +1,11 @@
 version: '2'
-
 services:
-  rexray-dobs-driver:
+  rexray-dobs:
     image: gustavosbarreto/mender-rexray-dobs-driver
-    privileged: true
-    network_mode: host
     stdin_open: true
     tty: true
+    privileged: true
+    network_mode: host
     volumes:
       - /run:/run
       - /var/run:/var/run
@@ -22,3 +21,7 @@ services:
       io.rancher.scheduler.global: true
       io.rancher.container.create_agent: 'true'
       io.rancher.container.agent.role: environment
+      io.rancher.container.pull_image: always
+      {{- if ne .Values.host_label ""}}
+      io.rancher.scheduler.affinity:host_label: ${host_label}
+      {{- end}}

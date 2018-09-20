@@ -1,7 +1,7 @@
 version: '2'
 catalog:
   name: "BNB Service Healthchecks"
-  version: "v0.0.1"
+  version: "v0.0.2"
   description: "A Sinatra Based App for Monitoring Services within Rancher"
   questions:       
     - variable: postgres_database_service

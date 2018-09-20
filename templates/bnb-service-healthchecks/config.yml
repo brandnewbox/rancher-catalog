@@ -1,0 +1,5 @@
+name: BNB Service Healthchecks
+description: A Sinatra Based App for Monitoring Services within Rancher
+version: v0.0.1
+category: Security
+maintainer: Brand New Box <hello@brandnewbox.com>

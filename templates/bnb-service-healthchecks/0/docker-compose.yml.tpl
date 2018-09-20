@@ -1,4 +1,4 @@
-version: '1'
+version: '2'
 services:
   service-healthchecks:
     image: brandnewbox/service-healthchecks:latest

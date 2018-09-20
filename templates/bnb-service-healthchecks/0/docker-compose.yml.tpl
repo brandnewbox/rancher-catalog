@@ -2,9 +2,11 @@ version: '2'
 services:
   service-healthchecks:
     image: brandnewbox/service-healthchecks:latest
+    command: bundle exec ruby service-healthchecks.rb
     stdin_open: true
     tty: true
     environment:
+      RACK_ENV: production
       POSTGRESQL_PORT: ${postgresql_port}
       POSTGRESQL_DATABASE: ${postgresql_database}
       POSTGRESQL_USERNAME: ${postgresql_username}

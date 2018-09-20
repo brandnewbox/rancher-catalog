@@ -1,7 +1,7 @@
 version: '2'
 catalog:
   name: "BNB Service Healthchecks"
-  version: "v0.0.3"
+  version: "v0.0.4"
   description: "A Sinatra Based App for Monitoring Services within Rancher"
   questions: 
     - variable: host_label

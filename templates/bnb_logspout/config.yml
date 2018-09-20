@@ -1,0 +1,4 @@
+name: BNB Logspout
+description: |
+  Logspout adapter configured to gather from tty containers
+category: Logging

@@ -3,7 +3,19 @@ catalog:
   name: "BNB Service Healthchecks"
   version: "v0.0.3"
   description: "A Sinatra Based App for Monitoring Services within Rancher"
-  questions:       
+  questions: 
+    - variable: host_label
+      label: "Host with Label to put healthchecker on"
+      description: |
+        Host label to use as healthcheck 'value' tag.
+        Example: 'healthchecker=true'
+      required: false
+      type: "string"  
+    - variable: url_namespace
+      label: "URL Namespace"
+      description: "secure/healthchecks"
+      required: false
+      type: "string" 
     - variable: postgres_database_service
       label: "PostgreSQL Database Service"
       description: "PostgreSQL"
@@ -26,14 +38,6 @@ catalog:
       label: "PostgreSQL Port"
       required: false
       type: "string" 
-
-    - variable: host_label
-      label: "Host with Label to put healthchecker on"
-      description: |
-        Host label to use as healthcheck 'value' tag.
-        Example: 'healthchecker=true'
-      required: false
-      type: "string"
 
 services:
   service-healthchecks:

@@ -7,6 +7,7 @@ services:
     tty: true
     environment:
       RACK_ENV: production
+      URL_NAMESPACE: ${url_namespace}
       POSTGRESQL_PORT: ${postgresql_port}
       POSTGRESQL_DATABASE: ${postgresql_database}
       POSTGRESQL_USERNAME: ${postgresql_username}

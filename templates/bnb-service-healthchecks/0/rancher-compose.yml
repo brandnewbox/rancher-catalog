@@ -1,7 +1,7 @@
 version: '2'
 catalog:
   name: "BNB Service Healthchecks"
-  version: "v0.0.4"
+  version: "v0.0.5"
   description: "A Sinatra Based App for Monitoring Services within Rancher"
   questions: 
     - variable: host_label
@@ -37,7 +37,8 @@ catalog:
     - variable: postgresql_port
       label: "PostgreSQL Port"
       required: false
-      type: "string" 
+      type: "string"
+      default: '5432'
 
 services:
   service-healthchecks:

@@ -12,7 +12,7 @@ services:
       POSTGRESQL_DATABASE: ${postgresql_database}
       POSTGRESQL_USERNAME: ${postgresql_username}
       POSTGRESQL_PASSWORD: ${postgresql_password}
-      POSTGRESQL_DATABASE_HOST: postgresql_host
+      POSTGRESQL_HOST: postgresql_host
     external_links:
     - ${postgres_database_service}:postgresql_host
     labels:

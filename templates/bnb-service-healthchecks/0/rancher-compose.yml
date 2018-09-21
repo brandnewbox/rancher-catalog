@@ -1,7 +1,7 @@
 version: '2'
 catalog:
   name: "BNB Service Healthchecks"
-  version: "v0.0.5"
+  version: "v0.0.6"
   description: "A Sinatra Based App for Monitoring Services within Rancher"
   questions: 
     - variable: host_label
@@ -16,7 +16,7 @@ catalog:
       description: "secure/healthchecks"
       required: false
       type: "string" 
-    - variable: postgres_database_service
+    - variable: postgresql_database_service
       label: "PostgreSQL Database Service"
       description: "PostgreSQL"
       required: false
@@ -39,6 +39,29 @@ catalog:
       required: false
       type: "string"
       default: '5432'
+    - variable: mysql_database_service
+      label: "MySQL Database Service"
+      description: "MySQL"
+      required: false
+      type: service
+    - variable: mysql_database
+      label: "MySQL Database Name"
+      description: "i.e. myapp_production"
+      required: false
+      type: "string" 
+    - variable: mysql_username
+      label: "MySQL Username"
+      required: false
+      type: "string" 
+    - variable: mysql_password
+      label: "MySQL Password"
+      required: false
+      type: "string" 
+    - variable: mysql_port
+      label: "MySQL Port"
+      required: false
+      type: "string"
+      default: '3306'
 
 services:
   service-healthchecks:

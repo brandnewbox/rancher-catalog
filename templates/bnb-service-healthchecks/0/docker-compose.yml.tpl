@@ -13,8 +13,14 @@ services:
       POSTGRESQL_USERNAME: ${postgresql_username}
       POSTGRESQL_PASSWORD: ${postgresql_password}
       POSTGRESQL_HOST: postgresql_host
+      MYSQL_PORT: ${mysql_port}
+      MYSQL_DATABASE: ${mysql_database}
+      MYSQL_USERNAME: ${mysql_username}
+      MYSQL_PASSWORD: ${mysql_password}
+      MYSQL_HOST: mysql_host
     external_links:
-    - ${postgres_database_service}:postgresql_host
+    - ${postgresql_database_service}:postgresql_host
+    - ${mysql_database_service}:mysql_host
     labels:
       io.rancher.container.pull_image: always
       {{- if ne .Values.host_label ""}}

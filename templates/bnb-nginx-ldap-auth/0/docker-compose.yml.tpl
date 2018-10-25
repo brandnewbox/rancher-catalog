@@ -1,5 +1,23 @@
 version: '2'
 services:
+  nginx-ldap-auth-authentication-ui:
+    image: brandnewbox/nginx-ldap-auth-authentication-ui:latest
+    stdin_open: true
+    tty: true
+    labels:
+      io.rancher.container.pull_image: always
+      {{- if ne .Values.host_label ""}}
+      io.rancher.scheduler.affinity:host_label: ${host_label}
+      {{- end}}
+  nginx-ldap-auth-daemon:
+    image: brandnewbox/nginx-ldap-auth-daemon:latest
+    stdin_open: true
+    tty: true
+    labels:
+      io.rancher.container.pull_image: always
+      {{- if ne .Values.host_label ""}}
+      io.rancher.scheduler.affinity:host_label: ${host_label}
+      {{- end}}  
   nginx-ldap-auth-reverse-proxy:
     image: brandnewbox/nginx-ldap-auth-reverse-proxy:latest
     stdin_open: true
@@ -15,24 +33,6 @@ services:
       - nginx-ldap-auth-authentication-ui:authentication_ui
     external_links:
       - ${secure_service}:secure_service
-    labels:
-      io.rancher.container.pull_image: always
-      {{- if ne .Values.host_label ""}}
-      io.rancher.scheduler.affinity:host_label: ${host_label}
-      {{- end}}
-  nginx-ldap-auth-daemon:
-    image: brandnewbox/nginx-ldap-auth-daemon:latest
-    stdin_open: true
-    tty: true
-    labels:
-      io.rancher.container.pull_image: always
-      {{- if ne .Values.host_label ""}}
-      io.rancher.scheduler.affinity:host_label: ${host_label}
-      {{- end}}  
-  nginx-ldap-auth-authentication-ui:
-    image: brandnewbox/nginx-ldap-auth-authentication-ui:latest
-    stdin_open: true
-    tty: true
     labels:
       io.rancher.container.pull_image: always
       {{- if ne .Values.host_label ""}}

@@ -1,7 +1,7 @@
 version: '2'
 catalog:
   name: "BNB Nginx LDAP Auth"
-  version: "v0.0.2"
+  version: "v0.0.3"
   description: "Authenticate access to a service using LDAP"
   questions:
     - variable: secure_service
@@ -35,9 +35,12 @@ catalog:
       type: "string" 
 
 services:
-  nginx-ldap-auth-reverse-proxy:
-    scale: 1
-  nginx-ldap-auth-daemon:
-    scale: 1
   nginx-ldap-auth-authentication-ui:
     scale: 1
+    start_on_create: true
+  nginx-ldap-auth-daemon:
+    scale: 1
+    start_on_create: true
+  nginx-ldap-auth-reverse-proxy:
+    scale: 1
+    start_on_create: true

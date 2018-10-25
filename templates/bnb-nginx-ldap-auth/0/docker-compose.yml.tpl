@@ -38,3 +38,4 @@ services:
       {{- if ne .Values.host_label ""}}
       io.rancher.scheduler.affinity:host_label: ${host_label}
       {{- end}}
+

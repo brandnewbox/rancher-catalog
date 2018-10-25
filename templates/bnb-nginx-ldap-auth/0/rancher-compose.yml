@@ -1,5 +1,5 @@
 version: '2'
-catalog:
+.catalog:
   name: "BNB Nginx LDAP Auth"
   version: "v0.0.3"
   description: "Authenticate access to a service using LDAP"

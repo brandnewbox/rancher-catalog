@@ -10,10 +10,11 @@ services:
       LDAP_MANAGER_DN: ${ldap_manager_dn}
       LDAP_MANAGER_PASSWORD: ${ldap_manager_password}
       LDAP_USER_SEARCH_BASE_DN: ${ldap_user_search_base_dn}
+    links:
+      - nginx-ldap-auth-daemon:daemon
+      - nginx-ldap-auth-authentication-ui:authentication_ui
     external_links:
-    - nginx-ldap-auth-daemon:daemon
-    - nginx-ldap-auth-authentication-ui:authentication_ui
-    - ${secure_service}:secure_service
+      - ${secure_service}:secure_service
     labels:
       io.rancher.container.pull_image: always
       {{- if ne .Values.host_label ""}}

@@ -33,6 +33,14 @@ version: '2'
       description: "ou=users,dc=ldap,dc=brandnewops,dc=com"
       required: true
       type: "string" 
+    - variable: host_label
+      label: "Host with Label to put this service on"
+      description: |
+        Host label to use as my_service 'value' tag.
+        Example: 'my_service=true'
+      required: false
+      default: ""
+      type: "string"
 
 services:
   nginx-ldap-auth-authentication-ui:

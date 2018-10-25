@@ -1,0 +1,15 @@
+.catalog:
+  name: BNB ELK Stack
+  version: 0.1
+  description: |
+    The ELK Stack will allow us to persist and analyze our logs.
+  questions:
+    - variable: "heap_size"
+      label: "Memory Heap Size in Megabytes"
+      type: "int"
+      required: true
+      default: 256
+      description: |
+        This should be ~ 1/3 of the total memory of the memory avaliable to the
+        ELK Stack.  If the stack is on a host by itself, use 1/3 of the total
+        memory.

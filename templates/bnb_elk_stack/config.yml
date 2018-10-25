@@ -1,0 +1,5 @@
+name: BNB ELK Stack
+description: |
+  Log persistence and analysis!
+category: Logging
+maintainer: josh

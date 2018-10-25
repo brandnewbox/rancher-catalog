@@ -1,0 +1,5 @@
+name: BNB NGINX LDAP Auth
+description: Securing services behind LDAP
+version: v0.0.1
+category: Security
+maintainer: Brand New Box <hello@brandnewbox.com>

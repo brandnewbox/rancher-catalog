@@ -1,0 +1,54 @@
+version: '2'
+.catalog:
+  name: "BNB Nginx LDAP Auth"
+  version: "v0.0.3"
+  description: "Authenticate access to a service using LDAP"
+  questions:
+    - variable: secure_service
+      label: "Secure Service"
+      description: "Which service would you like to secure behind this tool?"
+      required: true
+      type: service
+    - variable: secure_service_port
+      label: "Secure Service Port"
+      description: "What port is the secure service running on? (e.g. 80)"
+      required: true
+      type: "string" 
+    - variable: ldap_url
+      label: "LDAP URL"
+      description: "ldap://ldap.brandnewops.com:389"
+      required: true
+      type: "string" 
+    - variable: ldap_manager_dn
+      label: "LDAP Manager DN"
+      description: "cn=readonly,dc=ldap,dc=brandnewops,dc=com"
+      required: true
+      type: "string" 
+    - variable: ldap_manager_password
+      label: "LDAP Manager Password"
+      required: true
+      type: "string" 
+    - variable: ldap_user_search_base_dn
+      label: "LDAP User Search Base DN"
+      description: "ou=users,dc=ldap,dc=brandnewops,dc=com"
+      required: true
+      type: "string" 
+    - variable: host_label
+      label: "Host with Label to put this service on"
+      description: |
+        Host label to use as my_service 'value' tag.
+        Example: 'my_service=true'
+      required: false
+      default: ""
+      type: "string"
+
+services:
+  nginx-ldap-auth-authentication-ui:
+    scale: 1
+    start_on_create: true
+  nginx-ldap-auth-daemon:
+    scale: 1
+    start_on_create: true
+  nginx-ldap-auth-reverse-proxy:
+    scale: 1
+    start_on_create: true

@@ -5,9 +5,6 @@ services:
   elasticsearch:
     restart: always
     image: opticbob/elk_elasticsearch:latest
-    ports:
-      - "9200:9200"
-      - "9300:9300"
     environment:
       ES_JAVA_OPTS: "-Xmx${heap_size}m -Xms${heap_size}m"
     networks:
@@ -16,8 +13,6 @@ services:
   logstash:
     restart: always
     image: opticbob/elk_logstash:latest
-    ports:
-      - "5000:5000"
     environment:
       LS_JAVA_OPTS: "-Xmx${heap_size}m -Xms${heap_size}m"
     networks:
@@ -28,8 +23,6 @@ services:
   kibana:
     restart: always
     image: opticbob/elk_kibana:latest
-    ports:
-      - "5601:5601"
     networks:
       - elk
     depends_on:
